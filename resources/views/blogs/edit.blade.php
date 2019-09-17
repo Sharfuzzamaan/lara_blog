@@ -7,7 +7,7 @@
            <h1>Edit blog</h1>
        </div>
        <div class="col-md-12">
-        <form action="{{route('blogs.update,' $blog->id)}}" method="post">
+        <form action="{{route('blogs.update', $blog->id)}}" method="post">
             {{method_field('patch')}}
                <div class="form-group">
                    <label for="title">Title</label>
