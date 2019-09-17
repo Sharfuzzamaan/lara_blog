@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class BlogsController extends Controller
 {
+   
     public function index(){
         $blogs = Blog::all();
         return view('blogs.index', compact('blogs'));
@@ -22,6 +23,18 @@ class BlogsController extends Controller
         // $blog->title = $request->title;
         // $blog->body = $request->body;
         // $blog->save();
-        return redirect('/blogs');
+        return redirect('/');
+    }
+    public function show($id){
+        $blog = Blog::findOrFail($id);
+        return view('blogs.show', compact('blog'));
+    }
+
+    public function edit($id){
+        $blog = Blog::findOrFail($id);
+        return view('blogs.edit', ['blog' => $blog]);
+    }
+    public function update(Request $request){
+        dd($request);
     }
 }
